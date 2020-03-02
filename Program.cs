@@ -31,6 +31,7 @@ namespace plan_your_heist
                     string singleMemberName = Console.ReadLine ();
                     if (singleMemberName == "")
                     {
+                        Console.Clear();
                         break;
                     }
 
@@ -45,10 +46,10 @@ namespace plan_your_heist
                     teamMembers.Add (teamMember);
 
                 }
+
                 // iterating over the team members to add all of their skills and storing them in teamSkill
                 foreach (Dictionary<string, string> member in teamMembers)
                 {
-                    
                     foreach (KeyValuePair<string, string> individual in member)
                     {
                         if (individual.Key == "Skill")
@@ -57,7 +58,6 @@ namespace plan_your_heist
 
                         }
                     }
-
                 }
                 
 
@@ -68,13 +68,14 @@ namespace plan_your_heist
             int heistLuck = rand.Next (-10, 11);
             bankDifficulty += heistLuck;
 
-                    Console.WriteLine($"Round {i + 1}");
+            Console.WriteLine($"------Round {i + 1}------");
                 if (teamSkill >= bankDifficulty)
                 {
                     Console.WriteLine ("You succesfully robbed the bank! 💰");
                     Console.WriteLine ($"Team Skill Level: {teamSkill}");
                     Console.WriteLine ($"Bank Difficulty Level: {bankDifficulty}");
                     succesfulRuns += 1;
+                    Console.WriteLine("");
                     
                 }
                 else
@@ -83,11 +84,13 @@ namespace plan_your_heist
                     Console.WriteLine ($"Team Skill Level: {teamSkill}");
                     Console.WriteLine ($"Bank Difficulty Level: {bankDifficulty}");
                     unsuccesfulRuns += 1;
+                    Console.WriteLine("");
 
                 }
 
                 
             }
+                Console.WriteLine($"------Results------");
                 Console.WriteLine($"🏆 Successful Heists: {succesfulRuns} 🏆");
                 Console.WriteLine($"👎 Faied Heists: {unsuccesfulRuns} 👎");
         }
