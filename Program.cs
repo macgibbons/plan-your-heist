@@ -9,13 +9,15 @@ namespace plan_your_heist
         {
             Console.WriteLine ("Plan your Heist!");
 
-            Dictionary<int, string> teamMember = new Dictionary<int, string> ();
-            Dictionary<int, int> memberSkill = new Dictionary<int, int> ();
-            Dictionary<int, decimal> memberCourage = new Dictionary<int, decimal> ();
+            List<Dictionary<string, string>> teamMembers = new List<Dictionary<string, string>> ();
+
+            // Dictionary<int, int> memberSkill = new Dictionary<int, int> ();
+            // Dictionary<int, decimal> memberCourage = new Dictionary<int, decimal> ();
 
             while (true)
             {
 
+                Dictionary<string, string> teamMember = new Dictionary<string, string> ();
                 Console.WriteLine ("Enter your teammates name");
                 string singleMemberName = Console.ReadLine ();
                 if (singleMemberName == "")
@@ -23,32 +25,24 @@ namespace plan_your_heist
                     break;
                 }
 
-                teamMember.Add ((teamMember.Count + 1), singleMemberName);
+                teamMember.Add ("Name", singleMemberName);
 
                 Console.WriteLine ("Enter your teammates skill level");
-                memberSkill.Add ((teamMember.Count + 1), int.Parse (Console.ReadLine ()));
+                teamMember.Add ("Skill", Console.ReadLine ());
 
                 Console.WriteLine ("Enter your teammates courage level 0.0 - 2.0 ");
-                memberCourage.Add ((teamMember.Count + 1), decimal.Parse (Console.ReadLine ()));
+                teamMember.Add ("Courage", Console.ReadLine ());
+
+                teamMembers.Add (teamMember);
 
             }
-            foreach (KeyValuePair<int, string> name in teamMember)
+            foreach (Dictionary<string, string> member in teamMembers)
             {
-                // Console.WriteLine ($"{name.Key}: {name.Value}");
-                foreach (KeyValuePair<int, int> skill in memberSkill)
+                foreach (KeyValuePair<string, string> individual in member)
                 {
-                    if (skill.Key == name.Key)
-                    {
-                        foreach (KeyValuePair<int, decimal> courage in memberCourage)
-                        {
-                            if (courage.Key == name.Key)
-                            {
-
-                                Console.WriteLine ($"{name.Value} skilllevel: {skill.Value}, courageLevel: {courage.Value}");
-                            }
-                        }
-                    }
+                    Console.WriteLine ($"{individual.Key}: {individual.Value}");
                 }
+
             }
         }
     }
