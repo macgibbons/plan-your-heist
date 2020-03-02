@@ -8,21 +8,41 @@ namespace plan_your_heist
         static void Main (string[] args)
         {
             Console.WriteLine ("Plan your Heist!");
-            Console.WriteLine ("Enter your teammates name");
-            Dictionary<string, string> teamMember = new Dictionary<string, string> ();
-            teamMember.Add ("Name", Console.ReadLine ());
 
-            Console.WriteLine ("Enter your teammates skill level");
-            Dictionary<string, int> memberSkill = new Dictionary<string, int> ();
-            teamMember.Add ("Skill", Console.ReadLine ());
+            List<Dictionary<string, string>> teamMembers = new List<Dictionary<string, string>> ();
 
-            Console.WriteLine ("Enter your teammates courage level 0.0 - 2.0 ");
-            Dictionary<string, decimal> memberCourage = new Dictionary<string, decimal> ();
-            teamMember.Add ("Courage", Console.ReadLine ());
+            // Dictionary<int, int> memberSkill = new Dictionary<int, int> ();
+            // Dictionary<int, decimal> memberCourage = new Dictionary<int, decimal> ();
 
-            foreach (KeyValuePair<string, string> name in teamMember)
+            while (true)
             {
-                Console.WriteLine ($"{name.Key}: {name.Value}");
+
+                Dictionary<string, string> teamMember = new Dictionary<string, string> ();
+                Console.WriteLine ("Enter your teammates name");
+                string singleMemberName = Console.ReadLine ();
+                if (singleMemberName == "")
+                {
+                    break;
+                }
+
+                teamMember.Add ("Name", singleMemberName);
+
+                Console.WriteLine ("Enter your teammates skill level");
+                teamMember.Add ("Skill", Console.ReadLine ());
+
+                Console.WriteLine ("Enter your teammates courage level 0.0 - 2.0 ");
+                teamMember.Add ("Courage", Console.ReadLine ());
+
+                teamMembers.Add (teamMember);
+
+            }
+            foreach (Dictionary<string, string> member in teamMembers)
+            {
+                foreach (KeyValuePair<string, string> individual in member)
+                {
+                    Console.WriteLine ($"{individual.Key}: {individual.Value}");
+                }
+
             }
         }
     }
