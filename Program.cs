@@ -13,8 +13,9 @@ namespace plan_your_heist
 
             // Dictionary<string, int> bankDifficulty = new Dictionary<string, int> ();
             // bankDifficulty.Add ("Difficulty", 100);
-
-            int bankDifficulty = 100;
+            Random rand = new Random ();
+            int heistLuck = rand.Next (-10, 11);
+            int bankDifficulty = 100 + heistLuck;
             int teamSkill = 0;
 
             while (true)
@@ -52,6 +53,8 @@ namespace plan_your_heist
                 }
 
             }
+            Console.WriteLine ($"Team Skill Level: {teamSkill}");
+            Console.WriteLine ($"Bank Difficulty Level: {bankDifficulty}");
             // comparing the sum of the team members skills to the difficulty of the bank
             if (teamSkill >= bankDifficulty)
             {
