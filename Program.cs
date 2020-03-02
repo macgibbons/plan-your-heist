@@ -31,7 +31,7 @@ namespace plan_your_heist
                     string singleMemberName = Console.ReadLine ();
                     if (singleMemberName == "")
                     {
-                        Console.Clear();
+                        // Console.Clear();
                         break;
                     }
 
@@ -66,14 +66,14 @@ namespace plan_your_heist
                 
             Random rand = new Random ();
             int heistLuck = rand.Next (-10, 11);
-            bankDifficulty += heistLuck;
+            int temp = bankDifficulty + heistLuck;
 
             Console.WriteLine($"------Round {i + 1}------");
-                if (teamSkill >= bankDifficulty)
+                if (teamSkill >= temp)
                 {
                     Console.WriteLine ("You succesfully robbed the bank! 💰");
                     Console.WriteLine ($"Team Skill Level: {teamSkill}");
-                    Console.WriteLine ($"Bank Difficulty Level: {bankDifficulty}");
+                    Console.WriteLine ($"Bank Difficulty Level: {temp}");
                     succesfulRuns += 1;
                     Console.WriteLine("");
                     
@@ -82,7 +82,7 @@ namespace plan_your_heist
                 {
                     Console.WriteLine ("Your heist failed 🚫");
                     Console.WriteLine ($"Team Skill Level: {teamSkill}");
-                    Console.WriteLine ($"Bank Difficulty Level: {bankDifficulty}");
+                    Console.WriteLine ($"Bank Difficulty Level: {temp}");
                     unsuccesfulRuns += 1;
                     Console.WriteLine("");
 
