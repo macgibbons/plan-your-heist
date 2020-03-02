@@ -11,8 +11,11 @@ namespace plan_your_heist
 
             List<Dictionary<string, string>> teamMembers = new List<Dictionary<string, string>> ();
 
-            // Dictionary<int, int> memberSkill = new Dictionary<int, int> ();
-            // Dictionary<int, decimal> memberCourage = new Dictionary<int, decimal> ();
+            // Dictionary<string, int> bankDifficulty = new Dictionary<string, int> ();
+            // bankDifficulty.Add ("Difficulty", 100);
+
+            int bankDifficulty = 100;
+            int teamSkill = 0;
 
             while (true)
             {
@@ -36,12 +39,27 @@ namespace plan_your_heist
                 teamMembers.Add (teamMember);
 
             }
+            // iterating over the team members to add all of their skills and storing them in teamSkill
             foreach (Dictionary<string, string> member in teamMembers)
             {
                 foreach (KeyValuePair<string, string> individual in member)
                 {
-                    Console.WriteLine ($"{individual.Key}: {individual.Value}");
+                    if (individual.Key == "Skill")
+                    {
+                        teamSkill += int.Parse (individual.Value);
+
+                    }
                 }
+
+            }
+            // comparing the sum of the team members skills to the difficulty of the bank
+            if (teamSkill >= bankDifficulty)
+            {
+                Console.WriteLine ("You succesfully robbed the bank! 💰");
+            }
+            else
+            {
+                Console.WriteLine ("Your heist failed 💣");
 
             }
         }
