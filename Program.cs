@@ -16,7 +16,7 @@ namespace plan_your_heist
             Console.WriteLine ("How many Times are you going to try?");
             int trials = int.Parse (Console.ReadLine ());
 
-            Console.WriteLine ("Whats the banks difficulty level");
+            Console.WriteLine ("What's the bank's difficulty level");
             int bankDifficulty = int.Parse (Console.ReadLine ());
 
             // setting the number of successful and failed runs
@@ -27,7 +27,7 @@ namespace plan_your_heist
                 while (true)
                 {
                     Dictionary<string, string> teamMember = new Dictionary<string, string> ();
-                    Console.WriteLine ("Enter your teammates name");
+                    Console.WriteLine ("Enter your teammate's name");
                     string singleMemberName = Console.ReadLine ();
                     if (singleMemberName == "")
                     {
@@ -37,10 +37,10 @@ namespace plan_your_heist
 
                     teamMember.Add ("Name", singleMemberName);
 
-                    Console.WriteLine ("Enter your teammates skill level");
+                    Console.WriteLine ("Enter your teammate's skill level 0-100");
                     teamMember.Add ("Skill", Console.ReadLine ());
 
-                    Console.WriteLine ("Enter your teammates courage level 0.0 - 2.0 ");
+                    Console.WriteLine ("Enter your teammate's courage level 0.0 - 2.0 ");
                     teamMember.Add ("Courage", Console.ReadLine ());
 
                     teamMembers.Add (teamMember);
