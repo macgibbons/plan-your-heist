@@ -16,7 +16,7 @@ namespace plan_your_heist
             Console.WriteLine ("How many Times are you going to try?");
             int trials = int.Parse (Console.ReadLine ());
 
-            Console.WriteLine ("What's the bank's difficulty level");
+            Console.WriteLine ("What's the bank'`s difficulty level");
             int bankDifficulty = int.Parse (Console.ReadLine ());
 
             // setting the number of successful and failed runs
